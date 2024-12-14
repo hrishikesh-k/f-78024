@@ -1,0 +1,27 @@
+{
+  "devDependencies": {
+    "@biomejs/biome": "1.9.4",
+    "@netlify/edge-functions": "2.11.1",
+    "@sveltejs/adapter-static": "3.0.6",
+    "@sveltejs/kit": "2.11.1",
+    "@sveltejs/vite-plugin-svelte": "5.0.2",
+    "@types/node": "22.10.2",
+    "netlify-cli": "17.38.0",
+    "svelte": "5.13.0",
+    "svelte-check": "4.1.1",
+    "typescript": "5.7.2",
+    "vite": "6.0.3"
+  },
+  "name": "f-78024",
+  "private": true,
+  "scripts": {
+    "build": "vite build",
+    "check": "npm run sync && svelte-check",
+    "dev": "vite dev",
+    "lint": "biome check",
+    "preview": "vite preview",
+    "sync": "svelte-kit sync"
+  },
+  "type": "module",
+  "version": "0.0.1"
+}

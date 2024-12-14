@@ -1,0 +1,80 @@
+{
+  "$schema": "https://www.biomejs.dev/schemas/1.9.4/schema.json",
+  "css": {
+    "formatter": {
+      "quoteStyle": "single"
+    }
+  },
+  "files": {
+    "ignore": [
+      "**/.netlify/**",
+      "**/.svelte-kit/**",
+      "**/dist/**",
+      "**/node_modules/**"
+    ]
+  },
+  "formatter": {
+    "indentStyle": "space"
+  },
+  "javascript": {
+    "formatter": {
+      "bracketSameLine": true,
+      "quoteStyle": "single",
+      "semicolons": "asNeeded",
+      "trailingCommas": "none"
+    }
+  },
+  "json": {
+    "parser": {
+      "allowTrailingCommas": false
+    }
+  },
+  "linter": {
+    "rules": {
+      "all": true
+    }
+  },
+  "overrides": [
+    {
+      "include": ["**/netlify/edge-functions/**"],
+      "javascript": {
+        "globals": ["Netlify"]
+      }
+    },
+    {
+      "include": [
+        "**/netlify/edge-functions/**",
+        "**/svelte.config.js",
+        "**/vite.config.ts"
+      ],
+      "javascript": {
+        "globals": ["Netlify"]
+      },
+      "linter": {
+        "rules": {
+          "correctness": {
+            "noNodejsModules": "off"
+          },
+          "style": {
+            "noDefaultExport": "off"
+          }
+        }
+      }
+    },
+    {
+      "include": ["**/*.svelte"],
+      "linter": {
+        "rules": {
+          "correctness": {
+            "noUndeclaredVariables": "off",
+            "noUnusedImports": "off",
+            "noUnusedVariables": "off"
+          },
+          "style": {
+            "useConst": "off"
+          }
+        }
+      }
+    }
+  ]
+}
