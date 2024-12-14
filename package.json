@@ -16,7 +16,7 @@
   "private": true,
   "scripts": {
     "build": "vite build",
-    "check": "npm run sync && svelte-check",
+    "check": "svelte-check",
     "dev": "vite dev",
     "lint": "biome check",
     "preview": "vite preview",
