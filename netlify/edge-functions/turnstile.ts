@@ -7,8 +7,9 @@ export default async function (request: Request, context: Context) {
 
   formData.append('idempotency_key', randomUUID())
   formData.append('remoteip', context.ip)
-  formData.append('secret', Netlify.env.get('SECRET_KEY') as string)
   formData.append('response', body.get('cf-turnstile-response') as string)
+  formData.append('secret', Netlify.env.get('SECRET_KEY') as string)
+  console.log(formData)
 
   const result = await fetch(
     'https://challenges.cloudflare.com/turnstile/v0/siteverify',
@@ -19,6 +20,7 @@ export default async function (request: Request, context: Context) {
   )
 
   const outcome = await result.json()
+  console.log(outcome)
 
   if (!outcome.success) {
     return Response.json(
