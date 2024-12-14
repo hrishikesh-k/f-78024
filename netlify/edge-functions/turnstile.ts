@@ -2,7 +2,7 @@ import { randomUUID } from 'node:crypto'
 import type { Config, Context } from '@netlify/edge-functions'
 
 export default async function (request: Request, context: Context) {
-  const body = await request.formData()
+  const body = await request.clone().formData()
   const formData = new FormData()
 
   formData.append('idempotency_key', randomUUID())
@@ -32,6 +32,8 @@ export default async function (request: Request, context: Context) {
       }
     )
   }
+
+  return context.next(request)
 }
 
 export const config: Config = {
