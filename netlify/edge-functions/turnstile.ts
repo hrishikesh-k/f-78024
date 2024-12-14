@@ -31,7 +31,7 @@ export default async function (request: Request, context: Context) {
     )
   }
 
-  return context.next(request)
+  return
 }
 
 export const config: Config = {
